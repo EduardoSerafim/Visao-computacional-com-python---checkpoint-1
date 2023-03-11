@@ -22,16 +22,6 @@ keys = [
 keyboard = Controller()
 
 
-
-#filtro baixo
-#85°, 45%, 55%
-# image_lower_hsv1 = np.array([0,114,140])
-# image_upper_hsv1 = np.array([80,200,200])
-#filtro alto
-#32°, 47%, 96%
-
-#40°, 51%, 66%
-#20, 130, 168
 image_lower_hsv2 = np.array([10,80,140])
 image_upper_hsv2 = np.array([50,200,250])
 
@@ -76,10 +66,7 @@ def image_da_webcam(img):
     """  
     img_rgb = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
 
-    #mask_hsv1 = filtro_de_cor(img, image_lower_hsv1, image_upper_hsv1)
-    mask_hsv2 = filtro_de_cor(img, image_lower_hsv2, image_upper_hsv2)
-    
-    mask_hsv = mascara_or(mask_hsv2, mask_hsv2)
+    mask_hsv = filtro_de_cor(img, image_lower_hsv2, image_upper_hsv2)
     
     contornos, _ = cv2.findContours(mask_hsv, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) 
 
